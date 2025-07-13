@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -16,10 +17,11 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Destinations", href: "#destinations" },
-    { name: "Treks", href: "#treks" },
-    { name: "Cultural Tours", href: "#tours" },
-    { name: "About Us", href: "#about" },
+    { name: "Destinations", href: "/treks" },
+    { name: "Treks", href: "/treks" },
+    { name: "About Us", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -34,21 +36,21 @@ export const Header = () => {
         <nav className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-xl lg:text-2xl font-display font-bold text-foreground">
+            <Link to="/" className="text-xl lg:text-2xl font-display font-bold text-foreground hover:text-primary transition-colors">
               Himalayan Adventures
-            </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-body font-medium"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -73,14 +75,14 @@ export const Header = () => {
           <div className="md:hidden bg-background border-t border-border">
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="block text-foreground hover:text-primary transition-colors duration-200 font-body font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold mt-4">
                 Plan Your Trip
