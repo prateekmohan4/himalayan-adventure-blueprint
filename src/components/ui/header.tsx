@@ -1,0 +1,94 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+
+export const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Destinations", href: "#destinations" },
+    { name: "Treks", href: "#treks" },
+    { name: "Cultural Tours", href: "#tours" },
+    { name: "About Us", href: "#about" },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        <nav className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <div className="flex items-center">
+            <h1 className="text-xl lg:text-2xl font-display font-bold text-foreground">
+              Himalayan Adventures
+            </h1>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-foreground hover:text-primary transition-colors duration-200 font-body font-medium"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-6">
+              Plan Your Trip
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-foreground p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="px-4 py-6 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-foreground hover:text-primary transition-colors duration-200 font-body font-medium py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold mt-4">
+                Plan Your Trip
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
