@@ -112,50 +112,48 @@ const Blog = () => {
       <Header />
       
       {/* Featured Article */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={featuredArticle.image}
             alt={featuredArticle.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/60 to-secondary/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-primary/20"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl">
-            <Badge className="bg-primary text-primary-foreground mb-4">
-              Featured Article
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              {featuredArticle.title}
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 font-body mb-8 leading-relaxed max-w-3xl">
-              {featuredArticle.excerpt}
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-6 text-white/80 text-sm font-body mb-8">
-              <div className="flex items-center">
-                <User className="w-4 h-4 mr-2" />
-                {featuredArticle.author}
-              </div>
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                {featuredArticle.date}
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
-                {featuredArticle.readTime}
-              </div>
+        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
+          <Badge className="bg-primary text-primary-foreground mb-6 px-4 py-2 text-sm font-semibold">
+            Featured Article
+          </Badge>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
+            Ultimate Guide to <span className="text-primary-muted">Spiti Valley</span>
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl font-body font-light max-w-3xl mx-auto leading-relaxed mb-8">
+            Discover the hidden gems of one of India's most spectacular high-altitude deserts
+          </p>
+          
+          <div className="flex flex-wrap justify-center items-center gap-6 text-white/80 text-sm font-body mb-8">
+            <div className="flex items-center">
+              <User className="w-4 h-4 mr-2" />
+              {featuredArticle.author}
             </div>
-            
-            <Link 
-              to={`/blog/${featuredArticle.slug}`}
-              className="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-8 py-3 rounded-lg transition-colors"
-            >
-              Read Full Article
-            </Link>
+            <div className="flex items-center">
+              <Calendar className="w-4 h-4 mr-2" />
+              {featuredArticle.date}
+            </div>
+            <div className="flex items-center">
+              <Clock className="w-4 h-4 mr-2" />
+              {featuredArticle.readTime}
+            </div>
           </div>
+          
+          <Link 
+            to={`/blog/${featuredArticle.slug}`}
+            className="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-8 py-3 rounded-lg transition-colors"
+          >
+            Read Full Article
+          </Link>
         </div>
       </section>
 

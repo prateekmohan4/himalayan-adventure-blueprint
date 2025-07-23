@@ -127,21 +127,21 @@ const TrekListing = () => {
       <Header />
       
       {/* Hero Banner */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={trekBanner}
             alt="Himalayan Treks"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/70 via-secondary/50 to-primary/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-primary/20"></div>
         </div>
-        <div className="relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
-            Explore Our Treks
+        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
+            Explore Our <span className="text-primary-muted">Treks</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 font-body max-w-2xl mx-auto">
-            Discover carefully curated adventures across the majestic Himalayas
+          <p className="text-lg md:text-xl lg:text-2xl font-body font-light max-w-3xl mx-auto leading-relaxed">
+            Discover breathtaking adventures across the majestic Himalayas of Himachal Pradesh
           </p>
         </div>
       </section>

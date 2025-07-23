@@ -49,14 +49,14 @@ const Contact = () => {
       <Header />
       
       {/* Header Section */}
-      <section className="py-20 lg:py-32 bg-gradient-section">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-            Get In Touch
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-primary/80"></div>
+        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
+            Get <span className="text-primary-muted">In Touch</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-body max-w-3xl mx-auto leading-relaxed">
-            Ready to embark on your Himalayan adventure? We're here to help you plan the perfect trek. 
-            Get in touch with our team of mountain experts.
+          <p className="text-lg md:text-xl lg:text-2xl font-body font-light max-w-3xl mx-auto leading-relaxed">
+            We'd love to hear from you. Reach out for any questions about our treks or to plan your next adventure in Himachal Pradesh.
           </p>
         </div>
       </section>

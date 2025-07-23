@@ -27,17 +27,17 @@ export const SeasonTimeline = ({ currentMonth, onMonthChange }: SeasonTimelinePr
   };
 
   return (
-    <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20">
-      <div className="bg-background/20 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/20">
-        <div className="flex items-center space-x-6 mb-4">
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-4xl px-4">
+      <div className="bg-background/10 backdrop-blur-lg rounded-3xl px-6 py-4 border border-white/10 shadow-2xl">
+        <div className="flex items-center justify-between mb-3">
           {months.map((month, index) => (
             <button
               key={month}
               onClick={() => onMonthChange(index)}
-              className={`text-white font-body font-medium transition-all duration-300 hover:scale-110 ${
+              className={`font-body font-medium transition-all duration-300 hover:scale-110 min-w-[2.5rem] ${
                 currentMonth === index 
-                  ? "text-xl font-semibold text-primary" 
-                  : "text-base hover:text-primary/80"
+                  ? "text-lg font-bold text-primary-muted scale-110" 
+                  : "text-sm text-white/80 hover:text-white"
               }`}
             >
               {month}
@@ -46,15 +46,15 @@ export const SeasonTimeline = ({ currentMonth, onMonthChange }: SeasonTimelinePr
         </div>
         
         <div className="relative">
-          <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div 
-              className={`h-full rounded-full bg-gradient-to-r ${seasonColors[currentMonth as keyof typeof seasonColors]} transition-all duration-500`}
+              className={`h-full rounded-full bg-gradient-to-r ${seasonColors[currentMonth as keyof typeof seasonColors]} transition-all duration-700 ease-out`}
               style={{ width: `${((currentMonth + 1) / 12) * 100}%` }}
             />
           </div>
           <div 
-            className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg transition-all duration-500"
-            style={{ left: `${(currentMonth / 11) * 100}%` }}
+            className="absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-primary-muted rounded-full border-2 border-white shadow-lg transition-all duration-700 ease-out"
+            style={{ left: `${(currentMonth / 11) * 100}%`, transform: 'translateY(-50%) translateX(-50%)' }}
           />
         </div>
       </div>

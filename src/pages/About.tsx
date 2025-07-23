@@ -64,7 +64,7 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-96 md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={teamPhoto}
@@ -73,12 +73,12 @@ const About = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-secondary/70 via-secondary/50 to-primary/30"></div>
         </div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 lg:px-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
+        <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
             We are <span className="text-primary-muted">Himalayan by Heart</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 font-body font-light max-w-3xl mx-auto leading-relaxed">
-            Dedicated to creating authentic mountain experiences that connect travelers with the soul of the Himalayas
+          <p className="text-lg md:text-xl lg:text-2xl font-body font-light max-w-3xl mx-auto leading-relaxed">
+            Passionate adventurers committed to responsible mountain tourism across Himachal Pradesh
           </p>
         </div>
       </section>
