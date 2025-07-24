@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AuthModal } from "@/components/ui/auth-modal";
 import { Menu, X } from "lucide-react";
 
 export const Header = () => {
@@ -17,7 +18,7 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Destinations", href: "/treks" },
+    { name: "Destinations", href: "/destinations" },
     { name: "Treks", href: "/treks" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
@@ -54,8 +55,15 @@ export const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Auth and CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            <AuthModal 
+              trigger={
+                <Button variant="ghost" className="text-foreground hover:text-primary">
+                  Sign In
+                </Button>
+              }
+            />
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-6">
               Plan Your Trip
             </Button>
