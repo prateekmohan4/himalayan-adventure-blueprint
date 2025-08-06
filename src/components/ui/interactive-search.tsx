@@ -11,40 +11,43 @@ export const InteractiveSearch = ({ isVisible }: InteractiveSearchProps) => {
 
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-full max-w-4xl px-4">
-      <div className="bg-background/95 backdrop-blur-md rounded-3xl shadow-elevation-3 border border-white/20 p-8">
-        <h2 className="text-2xl font-display font-bold text-foreground mb-6 text-center">
+      <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 p-10">
+        <h2 className="text-3xl font-display font-bold text-foreground mb-2 text-center">
           Find Your Perfect Adventure
         </h2>
+        <p className="text-muted-foreground text-center mb-8">
+          Discover curated Himalayan experiences tailored just for you
+        </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="relative group">
+            <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary/60 w-5 h-5 transition-colors group-focus-within:text-primary" />
             <Input 
-              placeholder="Destination (e.g., Spiti Valley)"
-              className="pl-10 h-12 bg-background border-border"
+              placeholder="Where to? (Spiti, Manali, Kashmir...)"
+              className="pl-12 h-14 bg-white/95 border-2 border-white/30 rounded-xl text-foreground placeholder:text-muted-foreground/70 focus:border-primary/50 focus:bg-white transition-all duration-300 shadow-sm hover:shadow-md"
             />
           </div>
           
-          <div className="relative">
-            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+          <div className="relative group">
+            <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary/60 w-5 h-5 transition-colors group-focus-within:text-primary" />
             <Input 
-              placeholder="When (e.g., October 2024)"
-              className="pl-10 h-12 bg-background border-border"
+              placeholder="When? (Oct '24, Nov '24, Dec '24...)"
+              className="pl-12 h-14 bg-white/95 border-2 border-white/30 rounded-xl text-foreground placeholder:text-muted-foreground/70 focus:border-primary/50 focus:bg-white transition-all duration-300 shadow-sm hover:shadow-md"
             />
           </div>
           
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+          <div className="relative group">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary/60 w-5 h-5 transition-colors group-focus-within:text-primary" />
             <Input 
-              placeholder="Activity (e.g., Trekking)"
-              className="pl-10 h-12 bg-background border-border"
+              placeholder="What? (Trekking, Photography, Culture...)"
+              className="pl-12 h-14 bg-white/95 border-2 border-white/30 rounded-xl text-foreground placeholder:text-muted-foreground/70 focus:border-primary/50 focus:bg-white transition-all duration-300 shadow-sm hover:shadow-md"
             />
           </div>
         </div>
         
         <div className="flex justify-center">
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-semibold">
-            <Search className="w-5 h-5 mr-2" />
+          <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground px-10 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Search className="w-5 h-5 mr-3" />
             Search Adventures
           </Button>
         </div>

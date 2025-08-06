@@ -27,8 +27,9 @@ export const SeasonTimeline = ({ currentMonth, onMonthChange }: SeasonTimelinePr
   };
 
   return (
-    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-5xl px-4">
-      <div className="bg-background/10 backdrop-blur-lg rounded-3xl px-8 py-5 border border-white/10 shadow-2xl ml-24">
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-4xl px-4">
+      <div className="bg-background/10 backdrop-blur-lg rounded-3xl px-8 py-5 border border-white/10 shadow-2xl mx-auto relative">
+        {/* Ensure it's centered and doesn't overlap with weather widget */}
         <div className="flex items-center justify-between mb-3">
           {months.map((month, index) => (
             <button

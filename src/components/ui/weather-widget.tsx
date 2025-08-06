@@ -20,7 +20,8 @@ export const WeatherWidget = ({ temperature, condition, location }: WeatherWidge
 
   return (
     <div className="absolute bottom-8 left-8 z-20">
-      <div className="bg-background/20 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/20">
+      <div className="bg-background/20 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/20 shadow-lg"
+           style={{ marginBottom: "0.5rem" }}>
         <div className="flex items-center space-x-3 text-white">
           {getWeatherIcon()}
           <div>

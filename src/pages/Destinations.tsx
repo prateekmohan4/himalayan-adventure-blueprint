@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Header } from "@/components/ui/header";
+import { Footer } from "@/components/ui/footer";
 import { DestinationCard } from "@/components/ui/destination-card";
 import { AdvancedSearchFilter } from "@/components/ui/advanced-search-filter";
 import { MapPin, Users, Clock } from "lucide-react";
@@ -105,6 +107,7 @@ const destinations = [
 export default function Destinations() {
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
         <div 
@@ -247,6 +250,7 @@ export default function Destinations() {
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

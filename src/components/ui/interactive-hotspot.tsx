@@ -31,10 +31,10 @@ export const InteractiveHotspot = ({ position, onClick, isActive }: InteractiveH
       />
       
       {/* Main circle */}
-      <div className={`relative w-8 h-8 rounded-full border-2 border-white transition-all duration-300 ${
-        isActive ? "bg-primary shadow-lg" : "bg-primary/80 hover:bg-primary"
+      <div className={`relative w-8 h-8 rounded-full border-2 border-white transition-all duration-300 shadow-lg ${
+        isActive ? "bg-primary shadow-xl scale-110" : "bg-primary/80 hover:bg-primary hover:scale-105"
       }`}>
-        <div className="absolute inset-2 bg-white rounded-full"></div>
+        <div className="absolute inset-2 bg-white rounded-full animate-pulse"></div>
       </div>
     </motion.button>
   );
