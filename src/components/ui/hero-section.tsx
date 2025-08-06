@@ -13,6 +13,7 @@ export const HeroSection = () => {
   const [currentMonth, setCurrentMonth] = useState(9); // October
   const [showSearch, setShowSearch] = useState(false);
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   const hotspots = [
     {
@@ -39,13 +40,13 @@ export const HeroSection = () => {
     },
     {
       id: 3,
-      position: { x: "60%", y: "65%" },
-      title: "Traditional Village Stay",
-      subtitle: "Immerse in authentic Himachali culture and warm hospitality",
+      position: { x: "15%", y: "70%" },
+      title: "Alpine Adventure Base",
+      subtitle: "Gateway to high-altitude expeditions and mountain climbing",
       info: {
-        location: "Malana Village",
-        duration: "3 Days",
-        groupSize: "4-8 People"
+        location: "Rohtang Pass",
+        duration: "6 Days",
+        groupSize: "4-10 People"
       }
     }
   ];
@@ -69,21 +70,46 @@ export const HeroSection = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Background with Seasonal Filters */}
-      <motion.div 
-        className="absolute inset-0"
-        animate={{ 
-          filter: currentSeason.filter,
-        }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+      {/* Simulated Video Background with CSS Animation */}
+      {showVideo ? (
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center animate-ken-burns"
+            style={{
+              backgroundImage: `url(${heroImage})`,
+              animation: 'kenBurns 20s ease-in-out infinite alternate'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 via-secondary/20 to-primary/10"></div>
+          </div>
+        </div>
+      ) : (
+        /* Static Background with Seasonal Filters */
+        <motion.div 
+          className="absolute inset-0"
+          animate={{ 
+            filter: currentSeason.filter,
+          }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        >
+          <img
+            src={heroImage}
+            alt="Himalayan Mountains"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-primary/20"></div>
+        </motion.div>
+      )}
+      
+      {/* Video Toggle Button */}
+      <button
+        onClick={() => setShowVideo(!showVideo)}
+        className="absolute top-24 right-8 z-30 bg-white/20 backdrop-blur-md rounded-full p-3 text-white hover:bg-white/30 transition-all duration-300"
       >
-        <img
-          src={heroImage}
-          alt="Himalayan Mountains"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-secondary/40 to-primary/20"></div>
-      </motion.div>
+        <div className="w-6 h-6 flex items-center justify-center">
+          {showVideo ? "📷" : "🎥"}
+        </div>
+      </button>
 
       {/* Interactive Hotspots */}
       <AnimatePresence>

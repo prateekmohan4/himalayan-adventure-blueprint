@@ -24,44 +24,57 @@ export const ContextualOverlay = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.3 }}
-      className="absolute z-10"
-      style={{ left: position.x, top: position.y }}
+      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.8, y: 20 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="absolute z-20"
+      style={{ 
+        left: position.x, 
+        top: position.y,
+        transform: 'translate(-50%, -100%)' // Center the overlay above the hotspot
+      }}
     >
-      {/* Connection Line */}
-      <div className="absolute -bottom-6 left-1/2 w-0.5 h-6 bg-primary"></div>
-      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      {/* Elegant Connection Line */}
+      <div className="absolute top-full left-1/2 transform -translate-x-1/2">
+        <div className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent"></div>
+        <div className="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-lg -mt-2 ml-[-7px] animate-pulse"></div>
+      </div>
       
-      {/* Content Card */}
-      <div className="bg-background/95 backdrop-blur-md rounded-2xl shadow-elevation-2 border border-white/20 p-6 min-w-80 max-w-96">
-        <h3 className="font-display font-bold text-lg text-foreground mb-1">
-          {title}
-        </h3>
-        <p className="font-body text-muted-foreground mb-4">
-          {subtitle}
-        </p>
+      {/* Enhanced Content Card */}
+      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 p-8 min-w-96 max-w-sm"
+           style={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
+        <div className="mb-6">
+          <h3 className="font-display font-bold text-2xl text-foreground mb-2">
+            {title}
+          </h3>
+          <p className="font-body text-muted-foreground leading-relaxed">
+            {subtitle}
+          </p>
+        </div>
         
-        <div className="space-y-2">
-          <div className="flex items-center text-sm text-muted-foreground">
-            <MapPin className="w-4 h-4 mr-2 text-primary" />
-            <span>{info.location}</span>
+        <div className="space-y-4 mb-6">
+          <div className="flex items-center text-foreground bg-primary/5 rounded-lg p-3">
+            <MapPin className="w-5 h-5 mr-3 text-primary flex-shrink-0" />
+            <span className="font-medium">{info.location}</span>
           </div>
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Clock className="w-4 h-4 mr-2 text-primary" />
-            <span>{info.duration}</span>
+          <div className="flex items-center text-foreground bg-primary/5 rounded-lg p-3">
+            <Clock className="w-5 h-5 mr-3 text-primary flex-shrink-0" />
+            <span className="font-medium">{info.duration}</span>
           </div>
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Users className="w-4 h-4 mr-2 text-primary" />
-            <span>{info.groupSize}</span>
+          <div className="flex items-center text-foreground bg-primary/5 rounded-lg p-3">
+            <Users className="w-5 h-5 mr-3 text-primary flex-shrink-0" />
+            <span className="font-medium">{info.groupSize}</span>
           </div>
         </div>
         
-        <button className="mt-4 text-primary font-body font-semibold hover:underline">
-          Learn More →
-        </button>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-full bg-gradient-to-r from-primary to-primary/90 text-primary-foreground py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          Explore This Adventure →
+        </motion.button>
       </div>
     </motion.div>
   );
