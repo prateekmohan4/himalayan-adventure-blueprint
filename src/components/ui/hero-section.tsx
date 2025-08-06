@@ -7,7 +7,7 @@ import { InteractiveSearch } from "@/components/ui/interactive-search";
 import { ContextualOverlay } from "@/components/ui/contextual-overlay";
 import { WeatherWidget } from "@/components/ui/weather-widget";
 import { InteractiveHotspot } from "@/components/ui/interactive-hotspot";
-import heroImage from "@/assets/hero-himalayas.jpg";
+import heroImage from "@/assets/hero-himalayas-enhanced.jpg";
 
 export const HeroSection = () => {
   const [currentMonth, setCurrentMonth] = useState(9); // October
@@ -40,7 +40,7 @@ export const HeroSection = () => {
     },
     {
       id: 3,
-      position: { x: "15%", y: "70%" },
+      position: { x: "45%", y: "75%" },
       title: "Alpine Adventure Base",
       subtitle: "Gateway to high-altitude expeditions and mountain climbing",
       info: {
@@ -113,23 +113,29 @@ export const HeroSection = () => {
 
       {/* Interactive Hotspots */}
       <AnimatePresence>
-        {hotspots.map((hotspot) => (
-          <div key={hotspot.id}>
-            <InteractiveHotspot
-              position={hotspot.position}
-              onClick={() => setActiveHotspot(activeHotspot === hotspot.id ? null : hotspot.id)}
-              isActive={activeHotspot === hotspot.id}
-            />
-            
-            <ContextualOverlay
-              title={hotspot.title}
-              subtitle={hotspot.subtitle}
-              position={hotspot.position}
-              info={hotspot.info}
-              isVisible={activeHotspot === hotspot.id}
-            />
-          </div>
-        ))}
+        {hotspots.map((hotspot) => {
+          console.log(`Rendering hotspot ${hotspot.id} at position:`, hotspot.position);
+          return (
+            <div key={hotspot.id} className="relative">
+              <InteractiveHotspot
+                position={hotspot.position}
+                onClick={() => {
+                  console.log(`Hotspot ${hotspot.id} clicked`);
+                  setActiveHotspot(activeHotspot === hotspot.id ? null : hotspot.id);
+                }}
+                isActive={activeHotspot === hotspot.id}
+              />
+              
+              <ContextualOverlay
+                title={hotspot.title}
+                subtitle={hotspot.subtitle}
+                position={hotspot.position}
+                info={hotspot.info}
+                isVisible={activeHotspot === hotspot.id}
+              />
+            </div>
+          );
+        })}
       </AnimatePresence>
 
       {/* Main Hero Content */}
