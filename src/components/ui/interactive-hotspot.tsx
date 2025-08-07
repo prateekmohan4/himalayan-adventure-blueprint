@@ -9,14 +9,9 @@ interface InteractiveHotspotProps {
 export const InteractiveHotspot = ({ position, onClick, isActive }: InteractiveHotspotProps) => {
   return (
     <motion.button
-      className="absolute z-30"
-      style={{ left: position.x, top: position.y, transform: 'translate(-50%, -50%)' }}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Hotspot clicked at position:', position);
-        onClick();
-      }}
+      className="absolute z-10"
+      style={{ left: position.x, top: position.y }}
+      onClick={onClick}
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.95 }}
     >
