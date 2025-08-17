@@ -27,18 +27,18 @@ export const SeasonTimeline = ({ currentMonth, onMonthChange }: SeasonTimelinePr
   };
 
   return (
-    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-4xl px-4">
-      <div className="bg-background/10 backdrop-blur-lg rounded-3xl px-8 py-5 border border-white/10 shadow-2xl mx-auto relative">
+    <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full max-w-4xl px-2 sm:px-4">
+      <div className="bg-background/10 backdrop-blur-lg rounded-2xl sm:rounded-3xl px-4 sm:px-8 py-3 sm:py-5 border border-white/10 shadow-2xl mx-auto relative">
         {/* Ensure it's centered and doesn't overlap with weather widget */}
         <div className="flex items-center justify-between mb-3">
           {months.map((month, index) => (
             <button
               key={month}
               onClick={() => onMonthChange(index)}
-              className={`font-body font-medium transition-all duration-300 hover:scale-110 min-w-[2.5rem] ${
+              className={`font-body font-medium transition-all duration-300 hover:scale-110 min-w-[1.5rem] sm:min-w-[2.5rem] text-xs sm:text-sm ${
                 currentMonth === index 
-                  ? "text-lg font-bold text-primary-muted scale-110" 
-                  : "text-sm text-white/80 hover:text-white"
+                  ? "sm:text-lg font-bold text-primary-muted scale-110" 
+                  : "text-white/80 hover:text-white"
               }`}
             >
               {month}

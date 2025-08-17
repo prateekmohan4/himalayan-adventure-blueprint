@@ -115,7 +115,7 @@ export const TestimonialCarousel = () => {
         <div className="relative max-w-4xl mx-auto">
           {/* Main Testimonial */}
           <div 
-            className="relative h-96 overflow-hidden rounded-3xl"
+            className="relative h-auto min-h-96 lg:h-96 overflow-hidden rounded-3xl"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
@@ -126,7 +126,7 @@ export const TestimonialCarousel = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -300 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-0 bg-card/80 backdrop-blur-sm border border-border rounded-3xl p-8 lg:p-12"
+                className="absolute inset-0 bg-card/80 backdrop-blur-sm border border-border rounded-3xl p-4 sm:p-6 lg:p-12"
               >
                 <div className="h-full flex flex-col justify-between">
                   {/* Quote Icon */}
@@ -136,7 +136,7 @@ export const TestimonialCarousel = () => {
 
                   {/* Review Text */}
                   <div className="flex-1 flex items-center">
-                    <blockquote className="text-lg lg:text-xl text-center font-body leading-relaxed text-foreground">
+                    <blockquote className="text-sm sm:text-base lg:text-xl text-center font-body leading-relaxed text-foreground">
                       "{testimonials[currentIndex].review}"
                     </blockquote>
                   </div>
