@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { supabase, CartItem, Trek } from '@/lib/supabase';
+import { supabase } from '@/integrations/supabase/client';
+import { CartItem, Trek } from '@/lib/types';
 import { useAuth } from './AuthContext';
 import { toast } from '@/hooks/use-toast';
 
