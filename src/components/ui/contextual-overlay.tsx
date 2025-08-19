@@ -28,11 +28,11 @@ export const ContextualOverlay = ({
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.8, y: 20 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="absolute z-20"
+      className="absolute z-40 pointer-events-auto"
       style={{ 
         left: position.x, 
         top: position.y,
-        transform: 'translate(-50%, -100%)' // Center the overlay above the hotspot
+        transform: 'translate(-50%, calc(-100% - 20px))' // Center the overlay above the hotspot with gap
       }}
     >
       {/* Elegant Connection Line */}
