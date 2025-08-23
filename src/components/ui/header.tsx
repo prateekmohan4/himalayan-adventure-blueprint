@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AuthModal } from "@/components/ui/auth-modal";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, User } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,18 @@ export const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const navLinks = [
@@ -57,14 +72,30 @@ export const Header = () => {
 
           {/* Auth and CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <AuthModal 
-              trigger={
-                <Button variant="ghost" className="text-foreground hover:text-primary">
-                  Sign In
+            {user ? (
+              <>
+                <Button variant="ghost" onClick={() => navigate("/cart")}>
+                  <ShoppingCart className="w-4 h-4 mr-2" />
+                  Cart
                 </Button>
-              }
-            />
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-6">
+                <Button variant="ghost" onClick={() => navigate("/dashboard")}>
+                  <User className="w-4 h-4 mr-2" />
+                  Dashboard
+                </Button>
+              </>
+            ) : (
+              <AuthModal 
+                trigger={
+                  <Button variant="ghost" className="text-foreground hover:text-primary">
+                    Sign In
+                  </Button>
+                }
+              />
+            )}
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-body font-semibold px-6"
+              onClick={() => navigate("/treks")}
+            >
               Plan Your Trip
             </Button>
           </div>
