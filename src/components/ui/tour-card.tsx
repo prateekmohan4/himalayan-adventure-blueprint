@@ -11,12 +11,14 @@ interface TourCardProps {
 export const TourCard = ({ image, title, description, duration, difficulty }: TourCardProps) => {
   return (
     <div className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevation-2 transition-all duration-300 hover:-translate-y-2">
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="aspect-[4/3] overflow-hidden relative">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
         />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
       </div>
       <div className="p-6">
         <h3 className="text-xl font-display font-semibold text-foreground mb-3">

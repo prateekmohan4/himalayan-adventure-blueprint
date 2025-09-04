@@ -1,9 +1,11 @@
 import { TourCard } from "@/components/ui/tour-card";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import spitiValley from "@/assets/spiti-valley.jpg";
 import kashmirHouseboat from "@/assets/kashmir-houseboat.jpg";
 import himachaliVillage from "@/assets/himachali-village.jpg";
 
 export const FeaturedTours = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const tours = [
     {
       image: spitiValley,
@@ -40,16 +42,23 @@ export const FeaturedTours = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tours.map((tour, index) => (
-            <TourCard
+            <div
               key={index}
-              image={tour.image}
-              title={tour.title}
-              description={tour.description}
-              duration={tour.duration}
-              difficulty={tour.difficulty}
-            />
+              className={`${
+                isVisible ? 'animate-fade-in-up' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <TourCard
+                image={tour.image}
+                title={tour.title}
+                description={tour.description}
+                duration={tour.duration}
+                difficulty={tour.difficulty}
+              />
+            </div>
           ))}
         </div>
       </div>

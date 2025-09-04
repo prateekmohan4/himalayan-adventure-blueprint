@@ -143,7 +143,10 @@ export const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 text-center max-w-5xl mx-auto px-4 lg:px-8"
           >
-            <motion.h1 
+            {/* Semi-transparent overlay behind hero text */}
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl -z-10"></div>
+            
+            <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -171,17 +174,16 @@ export const HeroSection = () => {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground font-body font-semibold px-8 py-3 text-lg transition-all duration-300"
+                variant="cta"
+                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm"
               >
                 Discover Our Treks
               </Button>
               
               <Button
                 onClick={() => setShowSearch(true)}
-                size="lg"
-                className="bg-primary/90 hover:bg-primary text-primary-foreground font-body font-semibold px-8 py-3 text-lg transition-all duration-300"
+                variant="cta"
+                className="bg-primary hover:bg-primary/90"
               >
                 <Search className="w-5 h-5 mr-2" />
                 Plan Your Journey
