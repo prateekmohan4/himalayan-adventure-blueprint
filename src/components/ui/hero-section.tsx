@@ -144,16 +144,12 @@ export const HeroSection = () => {
             className="relative z-10 text-center max-w-5xl mx-auto px-4 lg:px-8 group"
             whileHover={{ scale: 1.02 }}
           >
-            {/* Glassmorphism card with better transparency */}
+            {/* Subtle text shadow for readability */}
             <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl -z-10"
+              className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/10 backdrop-blur-sm rounded-3xl -z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              whileHover={{ 
-                background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%)",
-                borderColor: "rgba(255,255,255,0.3)"
-              }}
             ></motion.div>
             
             <motion.h1
