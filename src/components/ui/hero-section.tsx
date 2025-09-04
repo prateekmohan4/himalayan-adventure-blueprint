@@ -144,13 +144,6 @@ export const HeroSection = () => {
             className="relative z-10 text-center max-w-5xl mx-auto px-4 lg:px-8 group"
             whileHover={{ scale: 1.02 }}
           >
-            {/* Subtle text shadow for readability */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/10 backdrop-blur-sm rounded-3xl -z-10"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            ></motion.div>
             
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight py-8"
