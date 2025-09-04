@@ -137,57 +137,114 @@ export const HeroSection = () => {
         {!showSearch && (
           <motion.div 
             key="hero-content"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.8 }}
-            className="relative z-10 text-center max-w-5xl mx-auto px-4 lg:px-8"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -50, scale: 0.9 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative z-10 text-center max-w-5xl mx-auto px-4 lg:px-8 group"
+            whileHover={{ scale: 1.02 }}
           >
-            {/* Semi-transparent overlay behind hero text */}
-            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl -z-10"></div>
+            {/* Glassmorphism card with better transparency */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl -z-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              whileHover={{ 
+                background: "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%)",
+                borderColor: "rgba(255,255,255,0.3)"
+              }}
+            ></motion.div>
             
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
-              initial={{ opacity: 0, y: 50 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight py-8"
+              initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+              whileHover={{ 
+                textShadow: "0 0 30px rgba(255,255,255,0.3)",
+                transition: { duration: 0.3 }
+              }}
             >
               Experience the Soul of{" "}
-              <span className="text-primary-muted">the Mountains</span>
+              <motion.span 
+                className="text-primary-muted bg-gradient-to-r from-primary to-primary-muted bg-clip-text text-transparent"
+                whileHover={{ 
+                  scale: 1.05,
+                  filter: "brightness(1.2)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                the Mountains
+              </motion.span>
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 font-body font-light max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
+              className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 font-body font-light max-w-3xl mx-auto leading-relaxed px-6"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              whileHover={{ 
+                color: "rgba(255,255,255,1)",
+                transition: { duration: 0.3 }
+              }}
             >
               Curated journeys through the majestic landscapes of Himachal and Kashmir
               <br />
-              <span className="text-primary-muted font-medium">{currentSeason.description}</span>
+              <motion.span 
+                className="text-primary-muted font-medium"
+                animate={{ 
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.02, 1]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                {currentSeason.description}
+              </motion.span>
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-              initial={{ opacity: 0, y: 30 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center pb-8"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
+              transition={{ duration: 1, delay: 0.8 }}
             >
-              <Button
-                variant="cta"
-                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm"
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Discover Our Treks
-              </Button>
+                <Button
+                  variant="cta"
+                  className="border-2 border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:shadow-white/25"
+                >
+                  Discover Our Treks
+                </Button>
+              </motion.div>
               
-              <Button
-                onClick={() => setShowSearch(true)}
-                variant="cta"
-                className="bg-primary hover:bg-primary/90"
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Search className="w-5 h-5 mr-2" />
-                Plan Your Journey
-              </Button>
+                <Button
+                  onClick={() => setShowSearch(true)}
+                  variant="cta"
+                  className="bg-primary hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  >
+                    <Search className="w-5 h-5 mr-2" />
+                  </motion.div>
+                  Plan Your Journey
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
