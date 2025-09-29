@@ -18,47 +18,47 @@ Colors are in HSL format for better manipulation and consistency.
 
 @layer base {
   :root {
-    /* Brand Colors - Inspired by Himalayan landscape */
-    --primary: 43 83% 50%;           /* Deep saffron/marigold orange #E8A317 */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-    --primary-muted: 43 83% 95%;     /* Very light orange for backgrounds */
+    /* Brand Colors - Inspired by Himalayan sky and snow */
+    --primary: 210 60% 65%;           /* Soft mountain sky blue #6BA3D9 */
+    --primary-foreground: 0 0% 100%;  /* White text on primary */
+    --primary-muted: 210 50% 96%;     /* Very light blue for backgrounds */
     
-    --secondary: 210 19% 16%;        /* Dark mountain charcoal #222831 */
-    --secondary-foreground: 72 100% 98%; /* Light neutral on secondary */
+    --secondary: 200 20% 50%;         /* Mountain slate gray #6B8A98 */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
     
     /* Neutral palette */
-    --background: 72 100% 98%;       /* Off-white #FDFFF7 */
-    --foreground: 210 19% 16%;       /* Dark charcoal for text */
+    --background: 210 40% 98%;        /* Soft misty blue-white #F8FAFB */
+    --foreground: 215 25% 27%;        /* Cool dark gray for text #3D4F5C */
     
-    --card: 0 0% 100%;               /* Pure white for cards */
-    --card-foreground: 210 19% 16%;
+    --card: 0 0% 100%;                /* Pure white for cards */
+    --card-foreground: 215 25% 27%;
     
-    --muted: 43 20% 96%;             /* Very light warm gray */
-    --muted-foreground: 210 19% 45%; /* Medium gray text */
+    --muted: 210 30% 94%;             /* Very light cool gray */
+    --muted-foreground: 215 15% 50%;  /* Medium gray text */
     
-    --accent: 43 83% 92%;            /* Light accent color */
-    --accent-foreground: 210 19% 16%;
+    --accent: 35 85% 75%;             /* Soft golden sunrise #F0C688 */
+    --accent-foreground: 215 25% 27%;
     
     /* Interactive elements */
-    --border: 43 20% 90%;            /* Subtle warm borders */
-    --input: 43 20% 95%;             /* Input backgrounds */
-    --ring: 43 83% 50%;              /* Focus rings use primary */
+    --border: 210 25% 88%;            /* Subtle cool borders */
+    --input: 210 30% 96%;             /* Input backgrounds */
+    --ring: 210 60% 65%;              /* Focus rings use primary */
     
     /* Semantic colors */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 210 19% 16%;
+    --popover-foreground: 215 25% 27%;
     
     /* Layout */
-    --radius: 0.75rem;               /* Slightly larger radius for modern feel */
+    --radius: 0.75rem;                /* Slightly larger radius for modern feel */
     
     /* Custom design tokens for Himalayan Adventures */
-    --hero-overlay: 210 19% 16% / 0.6;  /* Semi-transparent overlay for hero */
-    --card-shadow: 0 4px 20px hsl(43 83% 50% / 0.1); /* Warm shadow with primary color */
-    --gradient-hero: linear-gradient(135deg, hsl(43 83% 50% / 0.9), hsl(210 19% 16% / 0.7));
-    --gradient-section: linear-gradient(180deg, hsl(72 100% 98%), hsl(43 20% 96%));
+    --hero-overlay: 215 25% 27% / 0.5;  /* Semi-transparent overlay for hero */
+    --card-shadow: 0 4px 20px hsl(210 60% 65% / 0.12); /* Soft blue shadow */
+    --gradient-hero: linear-gradient(135deg, hsl(210 60% 65% / 0.85), hsl(200 40% 50% / 0.75));
+    --gradient-section: linear-gradient(180deg, hsl(210 40% 98%), hsl(210 30% 96%));
     
     /* Animation and transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
