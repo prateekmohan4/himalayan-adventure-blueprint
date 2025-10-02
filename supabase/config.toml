@@ -1,1 +1,7 @@
 project_id = "qraxvdhsusmwbtztavzt"
+
+[functions.ai-trek-recommender]
+verify_jwt = false
+
+[functions.ai-itinerary-generator]
+verify_jwt = false
